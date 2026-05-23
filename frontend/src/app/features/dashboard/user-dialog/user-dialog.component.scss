@@ -1,0 +1,84 @@
+.dialog-title {
+  color: var(--text-primary) !important;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 1.5rem 1.5rem 0 !important;
+}
+
+.dialog-form-content {
+  padding: 1.5rem !important;
+  max-height: 70vh;
+}
+
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.full-width {
+  width: 100%;
+  
+  ::ng-deep .mdc-text-field--outlined {
+    background: rgba(15, 14, 23, 0.3) !important;
+    border-radius: 10px !important;
+  }
+}
+
+.half-width-container {
+  display: flex;
+  gap: 1rem;
+  
+  mat-form-field {
+    flex: 1;
+    
+    ::ng-deep .mdc-text-field--outlined {
+      background: rgba(15, 14, 23, 0.3) !important;
+      border-radius: 10px !important;
+    }
+  }
+}
+
+.dialog-actions-container {
+  padding: 1.5rem !important;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: 1rem;
+  
+  .cancel-btn {
+    color: var(--text-secondary) !important;
+    border-radius: 8px !important;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+  }
+  
+  .save-btn {
+    background: var(--gradient-primary) !important;
+    color: #fff !important;
+    border-radius: 8px !important;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(124, 92, 252, 0.3) !important;
+    border: none;
+    cursor: pointer;
+    
+    &:hover:not([disabled]) {
+      box-shadow: 0 6px 20px rgba(124, 92, 252, 0.4) !important;
+    }
+    
+    &[disabled] {
+      opacity: 0.5;
+      background: var(--bg-elevated) !important;
+      color: var(--text-secondary) !important;
+      box-shadow: none !important;
+      cursor: not-allowed;
+    }
+  }
+}

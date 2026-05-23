@@ -1,0 +1,180 @@
+/* ==========================================================================
+   Login Container (Main Wrapper)
+   ========================================================================== */
+.login-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex !important;           /* Forces flex layout */
+  justify-content: center !important;  /* Centers card horizontally */
+  align-items: center !important;      /* Centers card vertically */
+  background: var(--gradient-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Ambient Glow Spheres */
+.glow-sphere {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 0;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.sphere-1 {
+  width: 400px;
+  height: 400px;
+  background: var(--accent-primary);
+  top: -10%;
+  right: -5%;
+}
+
+.sphere-2 {
+  width: 500px;
+  height: 500px;
+  background: var(--accent-secondary);
+  bottom: -15%;
+  left: -10%;
+}
+
+/* ==========================================================================
+   Login Card Component
+   ========================================================================== */
+.login-card {
+  width: 100%;
+  max-width: 400px; /* Reduced from 440px for a cleaner look at 100% zoom */
+  padding: 1.75rem 1.75rem 1.25rem; /* Tightened internal spacing */
+  background: rgba(22, 33, 62, 0.65) !important;
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: 20px !important;
+  box-shadow: var(--shadow-glow) !important;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Header & Logo Section
+   ========================================================================== */
+.login-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1.25rem; /* Reduced from 2rem to pull inputs upward */
+  
+  .logo-container {
+    background: var(--gradient-primary);
+    width: 52px; /* Scaled down from 64px */
+    height: 52px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 24px rgba(124, 92, 252, 0.4);
+    margin-bottom: 0.75rem;
+    
+    .logo-icon {
+      font-size: 26px;
+      width: 26px;
+      height: 26px;
+      color: #fff;
+    }
+  }
+  
+  mat-card-title {
+    font-size: 1.5rem; /* Scaled down from 1.75rem */
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--text-primary);
+  }
+  
+  mat-card-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+  }
+}
+
+/* ==========================================================================
+   Form Fields & Action Button
+   ========================================================================== */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem; /* Reduced field-to-field vertical gap */
+  
+  mat-form-field {
+    width: 100%;
+    
+    ::ng-deep .mdc-text-field--outlined {
+      background: rgba(15, 14, 23, 0.4) !important;
+      border-radius: 10px !important;
+    }
+
+    /* Standardizes Angular Material density height */
+    ::ng-deep .mat-mdc-text-field-wrapper {
+      height: 56px !important;
+    }
+  }
+  
+  .submit-btn {
+    height: 46px; /* Compact action button height */
+    background: var(--gradient-primary) !important;
+    color: #fff !important;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 10px !important;
+    transition: all 0.3s ease !important;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(124, 92, 252, 0.3) !important;
+    margin-top: 0.25rem;
+    
+    &:hover:not([disabled]) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(124, 92, 252, 0.5) !important;
+    }
+    
+    &[disabled] {
+      opacity: 0.5;
+      cursor: not-allowed;
+      box-shadow: none !important;
+      background: var(--bg-elevated) !important;
+      color: var(--text-secondary) !important;
+    }
+  }
+}
+
+/* ==========================================================================
+   Demo Credentials Panel
+   ========================================================================== */
+.credentials-tip {
+  margin-top: 1.25rem; /* Removed deep dead space */
+  padding: 0.75rem;
+  background: rgba(15, 14, 23, 0.6);
+  border-radius: 10px;
+  border: 1px dashed rgba(124, 92, 252, 0.3);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+  box-sizing: border-box;
+  
+  p {
+    margin-bottom: 0.25rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  code {
+    background: var(--bg-elevated);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    color: var(--accent-secondary);
+    font-family: monospace;
+    font-weight: 600;
+  }
+}
